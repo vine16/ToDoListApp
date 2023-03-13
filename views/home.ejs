@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>TODO APP</h1>
+    <form>
+        <label for="description">DESCRIPTION</label>
+        <input type="text" placeholder="What do you need to do?" name="to-do-task" required>
+        <label for="category">CATEGORY</label>
+        <select id="category" name="category">
+            <option value="personal" selected> Personal</option>
+            <option value="work">Work</option>
+            <option value="school">School</option>
+            <option value="college">College</option>
+            <option value="home">Home</option>
+        </select>
+        <label for="due-date">DUE DATE</label>
+        <input type="date" id="due-date" name="due-date" required>
+        <button type="submit">ADD TASK</button>
+    </form>
+    <button>DELETE TASKS</button>
+</body>
+</html>

@@ -1,0 +1,30 @@
+{
+  "name": "minor-project-to-do-list",
+  "version": "1.0.0",
+  "description": "to-do list web application using mongodb",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "to-do-list-web-application"
+  },
+  "keywords": [
+    "productivity",
+    "todo",
+    "list",
+    "application",
+    "first",
+    "project",
+    "mongodb",
+    "express.js"
+  ],
+  "author": "Vinay Kumar",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "express": "^4.18.2"
+  }
+}
