@@ -7,6 +7,7 @@ const tasksModel = require('../models/task');
 router.use('/', require('./users'));
 
 
+//this is the delete branch
 router.get('/', async function(req, res)
 {
     try{
@@ -18,6 +19,7 @@ router.get('/', async function(req, res)
         tasks: tasks
         });
         res.end();
+        //delte button branch
     }
     catch(err)
     {
