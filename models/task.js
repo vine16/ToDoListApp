@@ -1,5 +1,7 @@
 //define the schema for the task here
-const mongoose = require('../config/mongoose');
+const mongoose = require('mongoose');
+
+
 
 const taskSchema = new mongoose.Schema({
     //fields
@@ -22,7 +24,7 @@ const taskSchema = new mongoose.Schema({
     }
 });
                             //collection name
-                            //if not specified -> 'tasks'
+    //model name            //if not specified -> 'tasks'
 const Task = mongoose.model('toDoTask', taskSchema);
 
 module.exports = Task;

@@ -5,13 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/index.css">
-    <title>Document</title>
+    <title><%= title %></title>
 </head>
 <body>
     <h1>TODO APP</h1>
-    <form>
+    <form action="/create-task" method="POST">
         <label for="description">DESCRIPTION</label>
-        <input type="text" placeholder="What do you need to do?" name="to-do-task" required>
+        <input type="text" placeholder="What do you need to do?" id="description" name="description" required>
         <label for="category">CATEGORY</label>
         <select id="category" name="category">
             <option value="personal" selected> Personal</option>
@@ -20,10 +20,28 @@
             <option value="college">College</option>
             <option value="home">Home</option>
         </select>
-        <label for="due-date">DUE DATE</label>
-        <input type="date" id="due-date" name="due-date" required>
+        <label for="dueDate">DUE DATE</label>
+        <input type="date" id="dueDate" name="dueDate" required>
         <button type="submit">ADD TASK</button>
     </form>
-    <button>DELETE TASKS</button>
+    <button>DELETE TASKS</button>       
+    <ul>
+        <ul>
+            <% for(let i in tasks) { %>
+                <li>
+                    <div>
+                        <input type="checkbox">
+                        <%= tasks[i].description %>
+                    </div>
+                    <div>
+                        <%= tasks[i].category %>
+                    </div>
+                    <div>
+                        <%= tasks[i].dueDate %>
+                    </div>
+                </li>
+            <% } %>
+        </ul>
+    </ul>
 </body>
 </html>
