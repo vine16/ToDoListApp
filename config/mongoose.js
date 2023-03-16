@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 
+main().catch(err => console.log(err)); 
+
 let db; //will hold the database connection
 async function main() {
     // Yes, that is correct. The URL specified in the mongoose.connect() method is the location of the MongoDB server that hosts the database you want to connect to.
@@ -9,4 +11,5 @@ async function main() {
   // use `await mongoose.connect('mongodb://user:password@127.0.0.1:27017/test');` if your database has auth enabled
 }
 
-module.exports = db;
+//no need
+// module.exports = db;
