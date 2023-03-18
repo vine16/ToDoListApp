@@ -1,4 +1,301 @@
-body{
-    background-color: skyblue;
-    text-align: center;
+*
+{
+    margin: 0;
+    padding: 0;
 }
+
+body{
+    background-color: white;
+}
+
+#main-heading
+{
+    text-align: center;
+    padding-top: 25px;
+    font-family: 'Lakki Reddy', cursive;
+}
+
+#notebook
+{
+    margin: auto;
+    margin-top: 50px;
+    width: 50%;
+    height: 100%;
+    min-width: 420px;
+    background-color: #4bc9f0;
+    position: relative;
+    box-shadow: 1px -1px 5px #555;
+    border-top: 1px solid #946947;
+}
+
+#notebook::before
+{
+    position: absolute;
+    content: '';
+    top: -5px;
+    left: 0;
+    height: 10px;
+    width: 99%;
+    background-size: 9px 12px;
+    background-image: -webkit-radial-gradient(5% 40%, circle, transparent 70%, #555 20%);
+    background-image: -moz-radial-gradient(5% 40%, circle, transparent 70%, #555 20%);
+    background-image: -ms-radial-gradient(5% 40%, circle, transparent 70%, #555 20%);
+    background-image: -o-radial-gradient(5% 40%, circle, transparent 70%, #555 20%);
+    background-image: radial-gradient(circle at 5% 40%, transparent 70%, #555 20%);
+}
+
+
+#description-div
+{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    /* border: 2px solid rgb(87,93,110); */
+    border-radius: 5px;
+    font-family: 'Pacifico', cursive;
+}
+
+
+#category-date
+{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    /* border: 2px solid rgb(87,93,110); */
+    border-radius: 5px;
+    font-family: 'Pacifico', cursive;
+}
+
+#choose-category, #date-div
+{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+#delete-add-buttons
+{
+    display: flex;
+    justify-content: space-evenly;
+
+}
+
+
+ul li{
+    list-style: none;
+    position: relative;
+}
+
+
+
+input
+{
+    border: none;
+    outline: none;
+    color: black;
+}
+
+input:focus {
+    background-color: #4bc9f0;
+    font-family: 'Short Stack', cursive;
+    
+}
+  
+input:not(:focus) {
+    background-color: #4bc9f0;
+    font-family: 'Short Stack', cursive;
+}
+
+input[type="text"]::placeholder {
+    color: rgb(87,93,110);
+    font-family: 'Short Stack', cursive;
+}
+
+input[type="text"] :valid {
+    color: black;
+}
+
+
+
+
+select
+{
+    background-color: #4bc9f0;
+    border-radius:5px;
+    outline:none;
+    appearance: none;
+    font-family: 'Short Stack', cursive;
+    background-image: url('../images/arrow.svg');
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 20px 20px;
+    padding-left: 5px;
+    height: 25px;
+}
+
+
+select:hover
+{
+    cursor: pointer;
+}
+
+input[type="date"]
+{
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 0 5px 0 5px;
+    height: 24px;
+}
+input[type="date"]:hover
+{
+    cursor: pointer;
+}
+
+#delete-add-buttons button
+{
+    
+    height: 35px;
+    border-radius: 20px;
+    border: none;
+    font-family: 'Patrick Hand', cursive;
+    font-size: 1.1rem;
+    color: white;   
+    margin-bottom: 20px;
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+button[type="submit"]
+{
+    background-color: #454345;
+    background-image: url(../images/icons8-plus-math-30.png);
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: 20px 20px;
+    padding-left: 10px;
+    background-position: 5px;
+    width: 100px;
+}
+
+button#delete-all-button
+{
+    background-color: #EA3624;
+    background-image: url(../images/icons8-dustbin-99.png);
+    background-size: 25px 25px;
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: 20px 20px;
+    padding-left: 15px;
+    background-position: 5px;
+    width: 125px;
+}
+
+
+
+#tasks-list li
+{
+    padding: 10px 20px 10px 20px;
+}
+
+.category-div
+{
+    position: absolute;
+    right: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 1px solid white;
+}
+
+
+.description-class
+{
+    padding-left: 5px;
+    font-family: 'Itim', cursive;
+    font-size: 1.3rem;
+}
+
+
+input[type=checkbox]
+{
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+input[type=checkbox] + label::before
+{
+    content: '';
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border: 1px solid black;
+    margin-right: 10px;
+    vertical-align: middle;
+    text-align: center;
+    line-height: 1;
+}
+
+
+input[type=checkbox]:checked + label::before{
+    content: '\2713';
+    text-align: center;
+    color: #333;
+    font-size: 12px;
+    font-weight: bold;
+} 
+
+
+.deadline-class::before
+{
+    content: "\1F4C5";
+    font-family: "Font Awesome 5 Free";
+    margin-left: 3px;
+}
+
+
+.deadline
+{
+    font-family: 'Pacifico', cursive;
+    margin-left: 4px;
+    font-size: 0.9rem;
+    color: gray
+}
+
+
+.category-div
+{
+    font-family: 'Indie Flower', cursive;
+    width: 60px;
+    text-align: center;
+    border: none;
+}
+
+div[data-category-id="school"]
+{
+    background-color: #D24554;
+}
+
+div[data-category-id="college"]
+{
+    background-color: #E6D875;
+}
+
+div[data-category-id="work"]
+{
+    background-color: #61AE62;
+}
+
+div[data-category-id="personal"]
+{
+    background-color: #DC8C3D;
+}
+
+div[data-category-id="home"]
+{
+    background-color: #8365C3;
+}
+
+

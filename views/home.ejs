@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/index.css">
+<<<<<<< HEAD
     <title><%= title %></title>
 </head>
 <body>
@@ -43,5 +44,73 @@
             <% } %>
         </ul>
     </ul>
+=======
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lakki+Reddy&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Short+Stack&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">    <title><%= title %></title>
+    <!-- <script src="https://kit.fontawesome.com/c217d88a2e.js" crossorigin="anonymous"></script> -->
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="notebook">
+        <h1 id="main-heading">TO DO APP</h1>
+        <div id="task-form">
+                <form action="/create-task" method="POST">
+                    <div id="description-div">
+                        <label for="description" class="heading">Description</label>
+                        <input type="text" placeholder="What do you need to do?" id="description" name="description" required>
+                    </div>
+                    <div id="category-date">
+                        <div id="choose-category">
+                            <label for="select-input" class="heading">Category</label>
+                            <select id="select-input" name="category">
+                                <option value="personal" selected> Personal</option>
+                                <option value="work">Work</option>
+                                <option value="school">School</option>
+                                <option value="college">College</option>
+                                <option value="home">Home</option>
+                            </select>
+                        </div>
+                        <div id="date-div">
+                            <label for="due-date" class="heading">Due Date</label>
+                            <input type="date" id="due-date" name="dueDate" required>
+                        </div>
+                    </div>
+                    <div id="delete-add-buttons">
+                        <button type="submit">Add Task</button>
+                        <button id="delete-all-button"> Delete Tasks </button>
+                    </div>                    
+                </form>
+        </div>        
+        <div id="tasks-list">
+            <ul>
+                <ul>
+                    <% for(let i of tasks) { %>
+                        <li>
+                            <div>
+                                <input id="<%= i._id %>" type="checkbox" class="my-checkbox" data-task-id="<%= i._id %>" <% if (i.isCompleted) { %>checked<% } %>>
+                                <label class="description-class" for="<%= i._id %>"><%= i.description %></label>
+                            </div>
+                            <div class="deadline-class">
+                                <span class="deadline"><%= i.dueDate.toLocaleDateString('en-US', {month: 'short', day: 'numeric', year: 'numeric' }) %></span>
+                            </div>
+                            <div data-category-id="<%= i.category %>" class="category-div">
+                                <%= i.category %>
+                            </div>
+                        </li>
+                    <% } %>
+                </ul>
+            </ul>
+        </div>
+    </div>
+    
+        <!-- '/' -> inside the assets(static folder) -->
+    <script src="/js/script.js"></script>
+>>>>>>> dlt-btn
 </body>
 </html>
