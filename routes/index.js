@@ -12,14 +12,14 @@ router.get('/', async function(req, res)
 {
     try{
         const tasks = await tasksModel.find({});
-
-        console.log(tasks);
+        
+        // console.log(tasks);
         res.render('home',{
-        title: 'My Contacts',
+        title: 'My Tasks',
         tasks: tasks
         });
         res.end();
-        //delte button branch
+        //delete button branch
     }
     catch(err)
     {
