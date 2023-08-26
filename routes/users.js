@@ -29,10 +29,7 @@ router.post('/create-task', async function(req, res){
 
 
 
-<<<<<<< HEAD
-
-=======
-router.patch('/toggle/:id', async function(req, res)
+router.get('/toggle/:id', async function(req, res)
 {
     const taskId = req.params.id;
 
@@ -56,13 +53,12 @@ router.patch('/toggle/:id', async function(req, res)
     }
 
     // console.log(newDoc);
-    res.json({message: 'task toggled successfully'});
-    // res.redirect('back');
+    // res.json({message: 'task toggled successfully'});
+    res.redirect('back');
 })
->>>>>>> dlt-btn
 
 //delete all tasks
-router.delete('/delete-tasks', async function(req, res)
+router.get('/delete-tasks', async function(req, res)
 {
 
     //get collection from the model
@@ -72,22 +68,14 @@ router.delete('/delete-tasks', async function(req, res)
         // tasksCollection = await task.find({}); this will give an array of doc, not the mongodb object
         // console.log(tasksCollection);
         const filter = {isCompleted : true};
-        const response = await task.deleteMany(filter);
-        if (response.deletedCount > 0) {
-            res.status(200).json({message: 'Completed tasks deleted successfully.'});
-          } else {
-            res.status(404).json({message: 'No completed tasks found to delete.'});
-          }
+        await task.deleteMany(filter);
     }
     catch(error)
     {
         console.log(error, 'error in deleting completed tasks');
     }
-    
-    
-    // res.json({ message: 'task deleted successfully' });
+
+    res.redirect('back');
 })
-
-
 
 module.exports = router;
