@@ -44,7 +44,7 @@
                     <div id="delete-add-buttons">
                         <button type="submit">Add Task</button>
                         <!-- <button id="delete-all-button"> Delete Tasks </button> -->
-                        <a href="/delete-tasks/"> Delete Tasks</a>
+                        <button id="delete-all-button"><a href="/delete-tasks/" > Delete Tasks</a></button>
                     </div>                    
                 </form>
         </div>        
@@ -54,7 +54,7 @@
                     <% for(let i of tasks) { %>
                         <li>
                             <div>
-                                <input id="<%= i._id %>" type="checkbox" class="my-checkbox" data-task-id="<%= i._id %>" <% if (i.isCompleted) { %>checked<% } %>>
+                                <input disabled id="<%= i._id %>" type="checkbox" class="my-checkbox" data-task-id="<%= i._id %>" <% if (i.isCompleted) { %>checked<% } %>>
                                 <label class="description-class" for="<%= i._id %>"><a href="/toggle/<%= i._id %>"><%= i.description %></a></label>
                             </div>
                             <div class="deadline-class">

@@ -6,6 +6,9 @@
 
 body{
     background-color: white;
+    background-image: url('../images/wireless-keyboard-mouse-earphones-table.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 #main-heading
@@ -20,9 +23,10 @@ body{
     margin: auto;
     margin-top: 50px;
     width: 50%;
-    height: 100%;
+    min-height: 80vh;
     min-width: 420px;
-    background-color: #4bc9f0;
+    background-color: #F998C8;
+    /* background-color: white; */
     position: relative;
     box-shadow: 1px -1px 5px #555;
     border-top: 1px solid #946947;
@@ -96,13 +100,13 @@ input
 }
 
 input:focus {
-    background-color: #4bc9f0;
+    background-color: #F998C8;
     font-family: 'Short Stack', cursive;
     
 }
   
 input:not(:focus) {
-    background-color: #4bc9f0;
+    background-color: #F998C8;
     font-family: 'Short Stack', cursive;
 }
 
@@ -120,7 +124,7 @@ input[type="text"] :valid {
 
 select
 {
-    background-color: #4bc9f0;
+    background-color: #F998C8;
     border-radius:5px;
     outline:none;
     appearance: none;
@@ -179,7 +183,7 @@ button[type="submit"]
     width: 100px;
 }
 
-button#delete-all-button
+#delete-all-button
 {
     background-color: #EA3624;
     background-image: url(../images/icons8-dustbin-99.png);
@@ -190,6 +194,7 @@ button#delete-all-button
     padding-left: 15px;
     background-position: 5px;
     width: 125px;
+    color: white;
 }
 
 
@@ -223,6 +228,11 @@ input[type=checkbox]
     opacity: 0;
     width: 0;
     height: 0;
+}
+
+a{
+    text-decoration: none;
+    color: black;
 }
 
 input[type=checkbox] + label::before
