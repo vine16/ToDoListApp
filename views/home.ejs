@@ -20,7 +20,7 @@
     <div id="notebook">
         <h1 id="main-heading">TO DO APP</h1>
         <div id="task-form">
-                <form action="/create-task" method="POST">
+                <form action="/create-task" method="POST" id="task-submit-form">
                     <div id="description-div">
                         <label for="description" class="heading">Description</label>
                         <input type="text" placeholder="What do you need to do?" id="description" name="description" required>
@@ -49,13 +49,12 @@
                 </form>
         </div>        
         <div id="tasks-list">
-            <ul>
-                <ul>
+                <ul id="tasks-ul">
                     <% for(let i of tasks) { %>
                         <li>
                             <div>
                                 <input disabled id="<%= i._id %>" type="checkbox" class="my-checkbox" data-task-id="<%= i._id %>" <% if (i.isCompleted) { %>checked<% } %>>
-                                <label class="description-class" for="<%= i._id %>"><a href="/toggle/<%= i._id %>"><%= i.description %></a></label>
+                                <label class="description-class" for="<%= i._id %>"><a class="task-description" href="/toggle/<%= i._id %>"><%= i.description %></a></label>
                             </div>
                             <div class="deadline-class">
                                 <span class="deadline"><%= i.dueDate.toLocaleDateString('en-US', {month: 'short', day: 'numeric', year: 'numeric' }) %></span>
@@ -66,11 +65,14 @@
                         </li>
                     <% } %>
                 </ul>
-            </ul>
         </div>
     </div>
     
         <!-- '/' -> inside the assets(static folder) -->
+    <script
+    src="https://code.jquery.com/jquery-3.7.0.js"
+    integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
+    crossorigin="anonymous"></script>
     <script src="/js/script.js"></script>
 </body>
 </html>

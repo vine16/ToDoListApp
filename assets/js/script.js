@@ -1,56 +1,56 @@
-// const dlt_btn = document.getElementById('delete-all-button');
-// const my_checkbox = document.getElementsByClassName('my-checkbox');
+$(document).ready(function() {
 
-// const elementArray = [...my_checkbox];
+    const taskDescriptions = $('.task-description');
+    const tasksList = $('#tasks-ul');
+    $('#task-submit-form').submit(function(event)
+    {
+        event.preventDefault();
+        const formData = $(this).serialize();
+        $.ajax({
+            url: '/create-task', 
+            method: 'POST', 
+            data: formData,
+            success: function(data) {
+                // Handle successful response here
+                const newTask = createNewTaskElement(data.data.task);
+                tasksList.append(newTask);
+                alert('Task Added successfully');
+            },
+            error: function(error) {
+              // Handle error here
+              alert('Error adding task: ' + error);
+            }
+          });
+    })
 
-// async function deleteCompletedTasks()
-// {
-//     try{
-//         const response = await fetch('/delete-tasks/', {method: 'DELETE'});
+
+    taskDescriptions.each(function() {
         
-//         if(response.ok){
-//             window.location.href = '/';
-//             // setTimeout(function(){
-//             //     location.reload();
-//             // }, 1000);
-//         }
-//         const jsonData = await response.json();
+        $(this).click(function(event){
+            event.preventDefault();
+            
+        })
 
-//         console.log(jsonData);
-//     }
-//     catch(err)
-//     {
-//         console.log(err, 'cant perform delete operation');
-//     }
-// }
-
-// async function toggleTaskStatus(taskId)
-// {
+    })
     
-//     try{
-//         const response = await fetch(`/toggle/${taskId}`,{
-//                 method: 'PATCH'
-//         })
+    function createNewTaskElement(task)
+    {
+        console.log(task.id, task._id);
+        const dueDate = new Date(task.dueDate);
+        const newTask = `<li>
+        <div>
+            <input disabled id="${task._id}" type="checkbox" class="my-checkbox" data-task-id="${task._id}">
+            <label class="description-class" for="${task._id}"><a href="/toggle/${task._id}"> ${task.description} </a></label>
+        </div>
+        <div class="deadline-class">
+            <span class="deadline">${dueDate.toLocaleDateString('en-US', {month: 'short', day: 'numeric', year: 'numeric' })}</span>
+        </div>
+        <div data-category-id="${task.category}" class="category-div">
+            ${task.category}
+        </div>
+    </li>`
+        return newTask;
+    }
 
-//         const msg = await response.json();
-//         console.log(msg);
-//     }
-//     catch(error)
-//     {
-//         console.log(error, 'not able to toggle task in server');
-//     }
-    
-// }
-
-
-// dlt_btn.addEventListener('click', deleteCompletedTasks);
-
-// elementArray.forEach(function(element){
-//     element.addEventListener('change', (event)=>{
-//         const taskId = event.target.dataset.taskId;
-//         console.log(taskId);
-//         toggleTaskStatus(taskId);
-//     });    
-// });
-
+})
 

@@ -6,7 +6,6 @@ const task = require('../models/task');
 
 
 router.post('/create-task', async function(req, res){
-    
     const formData = req.body;
 //created inside the mongodb
     try{
@@ -15,7 +14,19 @@ router.post('/create-task', async function(req, res){
             ...formData,
             isCompleted: false
         })
+
+        if(req.xhr)
+        {
+            //.id => string representation of ._id
+            // console.log(newDoc._id, newDoc.id);
+            return res.status(200).json({
+                data: {
+                message: 'Task added successfully',
+                task: newDoc
+            }});
+        }
         console.log(`successfully inserted the task ${newDoc}`);
+        
     }
     catch(err)
     {
