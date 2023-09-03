@@ -56,6 +56,15 @@ router.get('/toggle/:id', async function(req, res)
             {isCompleted: !prevState},
             {new : true}
         )
+
+        if(req.xhr)
+        {
+            return res.status(200).json({
+                data:{
+                    newState : !prevState
+                }
+            })
+        }
     }
     catch(error)
     {
@@ -80,6 +89,10 @@ router.get('/delete-tasks', async function(req, res)
         // console.log(tasksCollection);
         const filter = {isCompleted : true};
         await task.deleteMany(filter);
+        if(req.xhr)
+        {
+            return res.status(200).json({ success: true });
+        }
     }
     catch(error)
     {

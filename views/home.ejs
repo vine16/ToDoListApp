@@ -51,10 +51,10 @@
         <div id="tasks-list">
                 <ul id="tasks-ul">
                     <% for(let i of tasks) { %>
-                        <li>
+                        <li data-list-id="<%= i._id %>">
                             <div>
                                 <input disabled id="<%= i._id %>" type="checkbox" class="my-checkbox" data-task-id="<%= i._id %>" <% if (i.isCompleted) { %>checked<% } %>>
-                                <label class="description-class" for="<%= i._id %>"><a class="task-description" href="/toggle/<%= i._id %>"><%= i.description %></a></label>
+                                <label class="description-class" for="<%= i._id %>"><a data-check-box="<%= i._id %>" class="task-description" href="/toggle/<%= i._id %>"><%= i.description %></a></label>
                             </div>
                             <div class="deadline-class">
                                 <span class="deadline"><%= i.dueDate.toLocaleDateString('en-US', {month: 'short', day: 'numeric', year: 'numeric' }) %></span>
@@ -67,7 +67,6 @@
                 </ul>
         </div>
     </div>
-    
         <!-- '/' -> inside the assets(static folder) -->
     <script
     src="https://code.jquery.com/jquery-3.7.0.js"
